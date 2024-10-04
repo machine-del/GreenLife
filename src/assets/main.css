@@ -9,6 +9,10 @@
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
