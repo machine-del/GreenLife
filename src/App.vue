@@ -37,10 +37,10 @@ main {
 }
 
 footer {
-  display: flex;
-  align-items: center;
   padding: 20px 10px;
   color: #fff;
-  background-color: #252525;
+  height: auto;
+  margin-top: auto;
+  background-color: #1d2128;
 }
 </style>
