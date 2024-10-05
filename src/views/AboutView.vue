@@ -6,9 +6,9 @@
           <img src="../assets/images/background/main.png" alt="main">
         </div>
         <div class="about__main-text">
-          <h1 style="font-weight: 600; font-size: 3em; padding-bottom: 20px;">Принять более экологичное
+          <h1>Принять более экологичное
             будущее</h1>
-          <h2 style="font-weight: 500; font-size: 2em; margin-bottom: 20px;">Откройте для себя советы и истории о том,
+          <h2>Откройте для себя советы и истории о том,
             как вести
             экологичный образ жизни</h2>
           <button type="button">Узнать больше</button>
@@ -44,7 +44,7 @@
           <div class="popular-articles__card">
             <div class="popular-articles__card__container">
               <div class="popular-articles__card--image">
-                <img src="../assets/images/card/card_2.png" alt="card1">
+                <img src="../assets/images/card/card_2.png" alt="card2">
               </div>
               <div class="popular-articles__card--title">
                 <h2>Спасите леса</h2>
@@ -60,7 +60,7 @@
           <div class="popular-articles__card">
             <div class="popular-articles__card__container">
               <div class="popular-articles__card--image">
-                <img src="../assets/images/card/card_3.jpg" alt="card1">
+                <img src="../assets/images/card/card_3.jpg" alt="card3">
               </div>
               <div class="popular-articles__card--title">
                 <h2>Йога для здоровья</h2>
@@ -71,7 +71,60 @@
               <div class="popular-articles__card--description">
                 Узнайте, как йога может улучшить ваше душевное и физическое состояние. </div>
             </div>
-
+          </div>
+        </div>
+        <div class="popular-articles--text">
+          <h2>Статьи об устойчивом развитии</h2>
+        </div>
+        <div class="popular-articles__cards">
+          <div class="popular-articles__card">
+            <div class="popular-articles__card__container">
+              <div class="popular-articles__card--image">
+                <img src="../assets/images/card/card_4.jpg" alt="card4">
+              </div>
+              <div class="popular-articles__card--title">
+                <h2>Солнечная энергия</h2>
+              </div>
+              <div class="popular-articles__card--date">
+                05.10.2024
+              </div>
+              <div class="popular-articles__card--description">
+                Использование энергии солнца является ключевым компонентом в сокращении выбросов углекислого газа и
+                обеспечении устойчивого развития. </div>
+            </div>
+          </div>
+          <div class="popular-articles__card">
+            <div class="popular-articles__card__container">
+              <div class="popular-articles__card--image">
+                <img src="../assets/images/card/card_5.jpg" alt="card5">
+              </div>
+              <div class="popular-articles__card--title">
+                <h2>Городское садоводство</h2>
+              </div>
+              <div class="popular-articles__card--date">
+                05.10.2024
+              </div>
+              <div class="popular-articles__card--description">
+                Городское садоводство — это растущая тенденция, которая помогает обеспечить себя свежими продуктами
+                питания и одновременно уменьшить углеродный след. </div>
+            </div>
+          </div>
+          <div class="popular-articles__card">
+            <div class="popular-articles__card__container">
+              <div class="popular-articles__card--image">
+                <img src="../assets/images/card/card_6.jpg" alt="card6">
+              </div>
+              <div class="popular-articles__card--title">
+                <h2>Энергия ветра</h2>
+              </div>
+              <div class="popular-articles__card--date">
+                05.10.2024
+              </div>
+              <div class="popular-articles__card--description">
+                Энергия ветра - это чистый и возобновляемый источник, который может значительно снизить зависимость от
+                ископаемого топлива.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -95,15 +148,6 @@
   height: 100%;
 }
 
-button {
-  background-color: #636ae8;
-  color: #fff;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
 .about__main-text {
   position: absolute;
   top: 50%;
@@ -116,6 +160,31 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.about__main-text>h1 {
+  font-weight: 600;
+  font-size: 3em;
+  padding-bottom: 20px;
+}
+
+.about__main-text>h2 {
+  font-weight: 500;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #636ae8;
+  color: #fff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #649;
 }
 
 .popular-articles__container {
@@ -148,7 +217,6 @@ button {
   justify-content: center;
   margin: 56px 0px 52px 0px;
 }
-
 
 .popular-articles__card--image img {
   width: 400px;
@@ -242,15 +310,79 @@ button {
   }
 }
 
+@media (max-width: 991px) {
+  .about__main-text>h1 {
+    font-size: 2em;
+  }
+
+  .about__main-text>h2 {
+    font-size: 1.3em;
+  }
+}
+
 @media (max-width: 768px) {
   .popular-articles__card {
     flex-basis: 45%;
+  }
+
+  .popular-articles--text {
+    font-size: 14px;
+  }
+
+  .popular-articles__card--image img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .popular-articles__card--title {
+    font-weight: 700;
+    font-size: 12px;
+    padding-top: 8px;
+  }
+
+  .popular-articles__card--date {
+    padding: 8px 0px;
+  }
+
+  .popular-articles__card--description {
+    margin-bottom: 50px;
+  }
+
+  .popular-articles__card--description,
+  .popular-articles__card--date {
+    width: 300px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  button {
+    padding: 10px 20px;
   }
 }
 
 @media (max-width: 480px) {
   .popular-articles__card {
     flex-basis: 100%;
+  }
+
+  .about__main-text>h1 {
+    font-size: 1.3em;
+  }
+
+  .about__main-text>h2 {
+    font-size: 1em;
+  }
+
+  .popular-articles--text {
+    font-size: 12px;
+  }
+
+  .popular-articles__card {
+    flex-basis: 30%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
