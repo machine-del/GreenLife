@@ -9,6 +9,11 @@
   padding: 0;
 }
 
+::selection {
+  background-color: #649;
+  color: #fff;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
