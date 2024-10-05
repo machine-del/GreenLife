@@ -8,9 +8,9 @@
         <div class="about__main-text">
           <h1>Принять более экологичное
             будущее</h1>
-          <h2>Откройте для себя советы и истории о том,
+          <p>Откройте для себя советы и истории о том,
             как вести
-            экологичный образ жизни</h2>
+            экологичный образ жизни</p>
           <button type="button">Узнать больше</button>
         </div>
       </div>
@@ -130,6 +130,16 @@
       </div>
     </div>
   </section>
+  <section class="newsletter">
+    <div class="newsletter__container">
+      <div class="newsletter__main-text">
+        <h1>Присоединяйтесь к нашей рассылке</h1>
+        <p>Будьте в курсе последних экологических советов и эксклюзивных предложений. <br> Подпишитесь на рассылку прямо
+          сейчас, чтобы оказать положительное влияние!</p>
+        <button type="button">Подписаться</button>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
@@ -168,7 +178,7 @@
   padding-bottom: 20px;
 }
 
-.about__main-text>h2 {
+.about__main-text>p {
   font-weight: 500;
   font-size: 2em;
   margin-bottom: 20px;
@@ -256,6 +266,36 @@ button:hover {
   color: #636ae8;
 }
 
+.newsletter {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletter__container {
+  max-width: 1400px;
+}
+
+.newsletter__main-text h1 {
+  text-align: center;
+  color: #636ae8;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.newsletter__main-text p {
+  padding: 50px 20px;
+  font-size: 21px;
+  color: #9095a0;
+}
+
+.newsletter__main-text button {
+  display: flex;
+  margin: 0 auto;
+}
+
 .about__noise-bg {
   animation: noise-animation .25s steps(10) 0s infinite alternate-reverse none running;
   background: url("../src/assets/images/background/noise.png") rgba(0, 0, 0, 0.35);
@@ -315,14 +355,37 @@ button:hover {
     font-size: 2em;
   }
 
-  .about__main-text>h2 {
+  .about__main-text>p {
     font-size: 1.3em;
+  }
+
+  .newsletter__main-text h1 {
+    font-size: 28px;
+  }
+
+  .newsletter__main-text p {
+    padding: 30px 20px;
+    font-size: 17px;
   }
 }
 
 @media (max-width: 768px) {
   .popular-articles__card {
     flex-basis: 45%;
+  }
+
+  .newsletter__main-text h1 {
+    font-size: 25px;
+  }
+
+  .newsletter__container {
+    max-width: 350px;
+  }
+
+  .newsletter__main-text p {
+    padding: 20px 20px;
+    font-size: 15px;
+    color: #9095a0;
   }
 
   .popular-articles--text {
