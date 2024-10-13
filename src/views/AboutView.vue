@@ -185,12 +185,15 @@
 }
 
 button {
+  position: relative;
   background-color: #636ae8;
   color: #fff;
   padding: 15px 20px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(99, 106, 232, 0.75);
+  transition: transform 0.3s ease;
 }
 
 button:hover {

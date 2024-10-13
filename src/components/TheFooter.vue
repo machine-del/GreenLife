@@ -26,6 +26,7 @@
     align-items: center;
     flex-direction: row-reverse;
     flex-wrap: wrap;
+    padding: 0 20px;
 }
 
 .footer-newsletter__text {
@@ -77,7 +78,7 @@
 
 @media (max-width: 360px) {
     .footer-newsletter input[type='submit'] {
-        padding: 7.6px 1px;
+        padding: 7.6px 0px;
         font-size: 13px;
     }
 }

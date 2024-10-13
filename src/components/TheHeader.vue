@@ -105,14 +105,15 @@ a.active-link:hover {
 }
 
 .header-contact>button.callme {
+    position: relative;
     background-color: #636ae8;
-    border: none;
-    outline: none;
-    padding: 10px 10px;
-    border-radius: 10px;
     color: #fff;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
-    margin-right: 20px;
+    box-shadow: 0 4px 15px rgba(99, 106, 232, 0.75);
+    transition: transform 0.3s ease;
 }
 
 .header-contact>button:hover,
