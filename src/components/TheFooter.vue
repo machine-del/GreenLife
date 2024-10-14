@@ -5,7 +5,7 @@
                 <h2 for="email" class="footer-newsletter__text">Присоединяйтесь к нашей рассылке</h2>
                 <br>
                 <form @submit.prevent="sendEmail" id="contact-form">
-                    <input v-model="email" type="email" placeholder="email" required />
+                    <input v-model="email" name="user_email" type="email" id="email" placeholder="Ваш email" required>
                     <input type="submit" value="Подписаться" />
                 </form>
             </div>
