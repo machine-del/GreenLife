@@ -6,6 +6,11 @@ const menuOpen = ref(false);
 function toggleMenu() {
     menuOpen.value = !menuOpen.value;
 }
+
+const emit = defineEmits(['toggleModal'])
+const openModal = () => {
+    emit('toggleModal')
+}
 </script>
 
 <template>
@@ -42,14 +47,15 @@ function toggleMenu() {
                             </RouterLink>
                         </li>
                         <li>
-                            <button class="callme" type="button" :class="{ 'isOpen': menuOpen }">Свяжитесь с
+                            <button class="callme" type="button" :class="{ 'isOpen': menuOpen }"
+                                @click="openModal()">Свяжитесь с
                                 нами</button>
                         </li>
                     </ul>
                 </nav>
             </div>
             <div class="header-contact">
-                <button class="callme" type="button">Свяжитесь с нами</button>
+                <button class="callme" type="button" @click="openModal()">Свяжитесь с нами</button>
             </div>
         </div>
     </div>
@@ -175,11 +181,12 @@ a.active-link:hover {
         top: 0;
         background-color: #1d2128;
         color: white;
-        width: 300px;
+        width: 100%;
         height: 100vh;
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
         z-index: 999;
+        overflow: hidden;
     }
 
     .header-contact>button {

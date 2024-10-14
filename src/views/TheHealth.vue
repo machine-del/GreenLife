@@ -9,7 +9,7 @@
                     <h1>Здоровый образ жизни для устойчивого будущего</h1>
                     <p>Откройте для себя полезные советы о том, как заботиться о своем здоровье, живя в гармонии с
                         природой.</p>
-                    <button type="button">Подробнее</button>
+                    <button type="button" @click="openModal()">Подробнее</button>
                 </div>
             </div>
             <div class="about__noise-bg"></div>
@@ -138,12 +138,17 @@
                 <h1>Подпишитесь на наши экологические советы</h1>
                 <p>Получайте актуальные новости о здоровье и природе, а также советы по ведению экологически чистого
                     образа жизни. <br> Присоединяйтесь прямо сейчас!</p>
-                <button type="button">Подписаться</button>
             </div>
         </div>
     </section>
 </template>
 
+<script setup>
+const emit = defineEmits(['toggleModal'])
+const openModal = () => {
+    emit('toggleModal')
+}
+</script>
 
 <style scoped>
 .about__container {
@@ -197,7 +202,7 @@ button {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(99, 106, 232, 0.75);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 button:hover {

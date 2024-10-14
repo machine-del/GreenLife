@@ -9,7 +9,7 @@
                     <h1>Эко-образ жизни: гармония с природой каждый день</h1>
                     <p>Узнайте, как вести устойчивый образ жизни, сохраняя здоровье и окружающую среду. Практические
                         советы, вдохновение и реальные истории!</p>
-                    <button type="button">Подробнее</button>
+                    <button type="button" @click="openModal()">Подробнее</button>
                 </div>
             </div>
             <div class="about__noise-bg"></div>
@@ -136,12 +136,17 @@
                 <h1>Присоединяйтесь к экологичному образу жизни</h1>
                 <p>Подпишитесь на наши обновления, чтобы первыми узнавать о новых статьях, полезных советах и историях
                     людей, которые ведут жизнь в гармонии с природой.</p>
-                <button type="button">Подписаться</button>
             </div>
         </div>
     </section>
 </template>
 
+<script setup>
+const emit = defineEmits(['toggleModal'])
+const openModal = () => {
+    emit('toggleModal')
+}
+</script>
 
 <style scoped>
 .about__container {
@@ -195,13 +200,12 @@ button {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(99, 106, 232, 0.75);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 button:hover {
     background-color: #649;
 }
-
 
 .popular-articles__container {
     display: flex;

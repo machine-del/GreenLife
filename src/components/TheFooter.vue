@@ -4,8 +4,10 @@
             <div class="footer-newsletter">
                 <h2 for="email" class="footer-newsletter__text">Присоединяйтесь к нашей рассылке</h2>
                 <br>
-                <input type="email" placeholder="email">
-                <input type="submit" value="Подписаться">
+                <form @submit.prevent="sendEmail" id="contact-form">
+                    <input v-model="email" type="email" placeholder="email" required />
+                    <input type="submit" value="Подписаться" />
+                </form>
             </div>
             <div class="copyright">
                 <p>&copy; 2024 GreenLife, Inc. </p>
@@ -15,6 +17,24 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const email = ref('');
+
+const sendEmail = () => {
+    window.emailjs.sendForm(
+        'service_xnmyjpa',
+        'template_x0vtuyv',
+        '#contact-form',
+        'EAAGcARbYFPGkd1Mz'
+    )
+        .then(() => {
+            console.log("Сообщение успешно отправлено!");
+        })
+        .catch((error) => {
+            console.error('Ошибка при отправке', error);
+        });
+};
 </script>
 
 <style scoped>
@@ -39,11 +59,15 @@
 .footer-newsletter input[type='email'] {
     background-color: #1d2128;
     outline: none;
-    border: 1px solid white;
+    border: 1px solid #636ae8;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     padding: 10px 0px 10px 10px;
     color: #fff;
+}
+
+.footer-newsletter input[type='email']:focus {
+    border: 1px solid #ff4800;
 }
 
 .footer-newsletter input[type='submit'] {
@@ -68,6 +92,7 @@
     .footer-newsletter input[type='email'] {
         padding: 5px 0px 5px 10px;
         margin-bottom: 20px;
+        width: 170px;
     }
 
     .footer-newsletter input[type='submit'] {

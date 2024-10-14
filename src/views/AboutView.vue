@@ -11,7 +11,7 @@
           <p>Откройте для себя советы и истории о том,
             как вести
             экологичный образ жизни</p>
-          <button type="button">Узнать больше</button>
+          <button type="button" @click="openModal()">Узнать больше</button>
         </div>
       </div>
       <div class="about__noise-bg"></div>
@@ -136,11 +136,17 @@
         <h1>Присоединяйтесь к нашей рассылке</h1>
         <p>Будьте в курсе последних экологических советов и эксклюзивных предложений. <br> Подпишитесь на рассылку прямо
           сейчас, чтобы оказать положительное влияние!</p>
-        <button type="button">Подписаться</button>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+const emit = defineEmits(['toggleModal'])
+const openModal = () => {
+  emit('toggleModal')
+}
+</script>
 
 <style scoped>
 .about__container {
@@ -301,7 +307,7 @@ button:hover {
 
 .about__noise-bg {
   animation: noise-animation .25s steps(10) 0s infinite alternate-reverse none running;
-  background: url("../src/assets/images/background/noise.png") rgba(0, 0, 0, 0.35);
+  background: url("../assets/noise.png") rgba(0, 0, 0, 0.35);
   height: 100%;
   pointer-events: none;
   position: absolute;

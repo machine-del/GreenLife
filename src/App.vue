@@ -1,16 +1,22 @@
 <script setup>
 import TheHeader from '/src/components/TheHeader.vue'
 import TheFooter from '/src/components/TheFooter.vue'
+import Modal from '/src/components/TheModal.vue'
+
+import { ref } from 'vue';
+
+const isOpen = ref(false)
 </script>
 
 <template>
   <div class="page-wrapper">
     <header>
-      <TheHeader />
+      <TheHeader @toggleModal="isOpen = !isOpen" />
     </header>
     <main>
-      <RouterView />
+      <RouterView @toggleModal="isOpen = !isOpen" />
     </main>
+    <Modal :isOpen="isOpen" @toggleModal="isOpen = !isOpen" />
     <footer>
       <TheFooter />
     </footer>
