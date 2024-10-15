@@ -5,7 +5,7 @@
                 <h2 for="email" class="footer-newsletter__text">Присоединяйтесь к нашей рассылке</h2>
                 <br>
                 <form @submit.prevent="sendEmail" id="contact-form">
-                    <input v-model="email" name="user_email" type="email" id="email" placeholder="Ваш email" required>
+                    <input name="toEmail" type="email" placeholder="email" required />
                     <input type="submit" value="Подписаться" />
                 </form>
             </div>
@@ -17,10 +17,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
-const email = ref('');
-
 const sendEmail = () => {
     window.emailjs.sendForm(
         'service_xnmyjpa',
@@ -29,7 +25,7 @@ const sendEmail = () => {
         'EAAGcARbYFPGkd1Mz'
     )
         .then(() => {
-            console.log("Сообщение успешно отправлено!");
+            alert("Сообщение успешно отправлено!");
         })
         .catch((error) => {
             console.error('Ошибка при отправке', error);

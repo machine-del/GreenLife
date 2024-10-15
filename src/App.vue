@@ -4,7 +4,6 @@ import TheFooter from '/src/components/TheFooter.vue'
 import Modal from '/src/components/TheModal.vue'
 
 import { ref } from 'vue';
-
 const isOpen = ref(false)
 </script>
 
