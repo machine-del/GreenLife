@@ -11,6 +11,7 @@
 </template>
 
 <script setup>
+console.log(import.meta.env.BASE_URL);
 </script>
 
 <style setup>
@@ -52,7 +53,7 @@ a:hover {
 
 .noise-bg {
   animation: noise-animation .25s steps(10) 0s infinite alternate-reverse none running;
-  background: url("../assets/images/background/noise.png") rgba(0, 0, 0, 0.35);
+  background: url("../assets/noise.png") rgba(0, 0, 0, 0.35);
   height: 100%;
   pointer-events: none;
   position: absolute;

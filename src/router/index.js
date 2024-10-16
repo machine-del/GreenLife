@@ -23,8 +23,8 @@ const router = createRouter({
       component: TheLifestyle
     },
     {
-      path: '/:catchAll(.*)',
-      name: 'notFound',
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
       component: TheNotFound
     }
   ]
