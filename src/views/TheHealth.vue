@@ -6,8 +6,9 @@
                     <img src="../assets/images/background/TheHealth.jpg" alt="main">
                 </div>
                 <div class="about__main-text">
-                    <h1>Здоровый образ жизни для устойчивого будущего</h1>
-                    <p>Откройте для себя полезные советы о том, как заботиться о своем здоровье, живя в гармонии с
+                    <h1 class="animation-element">Здоровый образ жизни для устойчивого будущего</h1>
+                    <p class="element-animation">Откройте для себя полезные советы о том, как заботиться о своем
+                        здоровье, живя в гармонии с
                         природой.</p>
                     <button type="button" @click="openModal()">Подробнее</button>
                 </div>
@@ -15,6 +16,7 @@
             <div class="about__noise-bg"></div>
         </div>
     </section>
+
     <section class="popular-articles">
         <div class="popular-articles__container">
             <div class="popular-articles__box">
@@ -22,109 +24,20 @@
                     <h2>Полезные статьи о здоровье</h2>
                 </div>
                 <div class="popular-articles__cards">
-                    <div class="popular-articles__card">
+                    <div class="popular-articles__card" v-for="(article, index) in articles" :key="index"
+                        :class="{ 'animation-element': index % 2 === 0, 'element-animation': index % 2 !== 0 }">
                         <div class="popular-articles__card__container">
                             <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_7.jpg" alt="card1">
+                                <img :src="getUrl(article.image)" :alt="'card' + (index + 1)">
                             </div>
                             <div class="popular-articles__card--title">
-                                <h2>Экологичное питание для здоровья</h2>
+                                <h2>{{ article.title }}</h2>
                             </div>
                             <div class="popular-articles__card--date">
-                                04.10.2024
+                                {{ article.date }}
                             </div>
                             <div class="popular-articles__card--description">
-                                Узнайте, как экологически чистые продукты могут способствовать улучшению вашего
-                                здоровья.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_8.jpg" alt="card2">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Физическая активность на природе</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                04.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Откройте для себя преимущества активного отдыха на свежем воздухе для физического и
-                                ментального здоровья.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_3.jpg" alt="card3">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Йога на свежем воздухе</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                04.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Как йога на природе способствует улучшению общего состояния здоровья и душевного
-                                равновесия.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="popular-articles--text">
-                    <h2>Экологические инициативы и здоровье</h2>
-                </div>
-                <div class="popular-articles__cards">
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_9.jpg" alt="card4">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Органическое земледелие и ваше здоровье</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                05.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Как органическое земледелие помогает сохранить здоровье и способствует защите окружающей
-                                среды.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_10.png" alt="card5">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Чистый воздух и физическое здоровье</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                05.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Узнайте о важности чистого воздуха для поддержания крепкого здоровья и как защитить свои
-                                легкие от загрязнений.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_11.jpg" alt="card6">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Вода и здоровье: как чистая вода влияет на организм</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                05.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Оцените важность чистой воды для здоровья и узнайте, как сохранить водные ресурсы.
+                                {{ article.description }}
                             </div>
                         </div>
                     </div>
@@ -132,6 +45,7 @@
             </div>
         </div>
     </section>
+
     <section class="newsletter">
         <div class="newsletter__container">
             <div class="newsletter__main-text">
@@ -144,9 +58,36 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['toggleModal'])
+import { onMounted, defineEmits } from 'vue';
+import { articles } from '@/constants/Health';
+
+const emit = defineEmits(['toggleModal']);
 const openModal = () => {
-    emit('toggleModal')
+    emit('toggleModal');
+};
+
+function onEntry(entry) {
+    entry.forEach(change => {
+        if (change.isIntersecting) {
+            change.target.classList.add('element-show');
+        }
+    });
+}
+
+onMounted(() => {
+    const options = {
+        threshold: 0.1
+    };
+    const observer = new IntersectionObserver(onEntry, options);
+    const elements = document.querySelectorAll('.animation-element');
+    const elementsLeft = document.querySelectorAll('.element-animation');
+
+    elements.forEach(elm => observer.observe(elm));
+    elementsLeft.forEach(elm => observer.observe(elm));
+});
+
+const getUrl = (name) => {
+    return new URL(`../assets/images/card/${name}`, import.meta.url)
 }
 </script>
 
@@ -311,7 +252,7 @@ button:hover {
 
 .about__noise-bg {
     animation: noise-animation .25s steps(10) 0s infinite alternate-reverse none running;
-    background: url("../src/assets/images/background/noise.png") rgba(0, 0, 0, 0.35);
+    background: url("../assets/noise.png") rgba(0, 0, 0, 0.35);
     height: 100%;
     pointer-events: none;
     position: absolute;

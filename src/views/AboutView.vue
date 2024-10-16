@@ -6,151 +6,107 @@
           <img src="../assets/images/background/main.png" alt="main">
         </div>
         <div class="about__main-text">
-          <h1>Принять более экологичное
-            будущее</h1>
-          <p>Откройте для себя советы и истории о том,
-            как вести
-            экологичный образ жизни</p>
+          <h1 class="element-animation">Принять более экологичное будущее</h1>
+          <p class="animation-element">Откройте для себя советы и истории о том, как вести экологичный образ жизни</p>
           <button type="button" @click="openModal()">Узнать больше</button>
         </div>
       </div>
       <div class="about__noise-bg"></div>
     </div>
   </section>
+
   <section class="popular-articles">
     <div class="popular-articles__container">
       <div class="popular-articles__box">
         <div class="popular-articles--text">
-          <h2>Популярные статьи</h2>
+          <h2 class="animation-element">Популярные статьи</h2>
         </div>
         <div class="popular-articles__cards">
-          <div class="popular-articles__card">
+          <div v-for="(article, index) in popularArticles.slice(0, 3)" :key="index"
+            class="popular-articles__card animation-element">
             <div class="popular-articles__card__container">
               <div class="popular-articles__card--image">
-                <img src="../assets/images/card/card_1.jpg" alt="card1">
+                <img :src="getUrl(article.image)" :alt="`card${index + 1}`">
               </div>
               <div class="popular-articles__card--title">
-                <h2>Советы по здоровому питанию</h2>
+                <h2>{{ article.title }}</h2>
               </div>
-              <div class="popular-articles__card--date">
-                04.10.2024
-              </div>
-              <div class="popular-articles__card--description">
-                Узнайте, как сбалансированное питание, богатое овощами и фруктами, может укрепить ваше здоровье.
-              </div>
-            </div>
-
-          </div>
-          <div class="popular-articles__card">
-            <div class="popular-articles__card__container">
-              <div class="popular-articles__card--image">
-                <img src="../assets/images/card/card_2.png" alt="card2">
-              </div>
-              <div class="popular-articles__card--title">
-                <h2>Спасите леса</h2>
-              </div>
-              <div class="popular-articles__card--date">
-                04.10.2024
-              </div>
-              <div class="popular-articles__card--description">
-                Узнайте о последствиях вырубки лесов и о том, что вы можете сделать, чтобы помочь. </div>
-            </div>
-
-          </div>
-          <div class="popular-articles__card">
-            <div class="popular-articles__card__container">
-              <div class="popular-articles__card--image">
-                <img src="../assets/images/card/card_3.jpg" alt="card3">
-              </div>
-              <div class="popular-articles__card--title">
-                <h2>Йога для здоровья</h2>
-              </div>
-              <div class="popular-articles__card--date">
-                04.10.2024
-              </div>
-              <div class="popular-articles__card--description">
-                Узнайте, как йога может улучшить ваше душевное и физическое состояние. </div>
+              <div class="popular-articles__card--date">{{ article.date }}</div>
+              <div class="popular-articles__card--description">{{ article.description }}</div>
             </div>
           </div>
         </div>
         <div class="popular-articles--text">
-          <h2>Статьи об устойчивом развитии</h2>
+          <h2 class="element-animation">Статьи об устойчивом развитии</h2>
         </div>
         <div class="popular-articles__cards">
-          <div class="popular-articles__card">
+          <div v-for="(article, index) in popularArticles.slice(3)" :key="index + 3"
+            class="popular-articles__card element-animation">
             <div class="popular-articles__card__container">
               <div class="popular-articles__card--image">
-                <img src="../assets/images/card/card_4.jpg" alt="card4">
+                <img :src="getUrl(article.image)" :alt="`card${index + 4}`">
               </div>
               <div class="popular-articles__card--title">
-                <h2>Солнечная энергия</h2>
+                <h2>{{ article.title }}</h2>
               </div>
-              <div class="popular-articles__card--date">
-                05.10.2024
-              </div>
-              <div class="popular-articles__card--description">
-                Использование энергии солнца является ключевым компонентом в сокращении выбросов углекислого газа и
-                обеспечении устойчивого развития. </div>
-            </div>
-          </div>
-          <div class="popular-articles__card">
-            <div class="popular-articles__card__container">
-              <div class="popular-articles__card--image">
-                <img src="../assets/images/card/card_5.jpg" alt="card5">
-              </div>
-              <div class="popular-articles__card--title">
-                <h2>Городское садоводство</h2>
-              </div>
-              <div class="popular-articles__card--date">
-                05.10.2024
-              </div>
-              <div class="popular-articles__card--description">
-                Городское садоводство — это растущая тенденция, которая помогает обеспечить себя свежими продуктами
-                питания и одновременно уменьшить углеродный след. </div>
-            </div>
-          </div>
-          <div class="popular-articles__card">
-            <div class="popular-articles__card__container">
-              <div class="popular-articles__card--image">
-                <img src="../assets/images/card/card_6.jpg" alt="card6">
-              </div>
-              <div class="popular-articles__card--title">
-                <h2>Энергия ветра</h2>
-              </div>
-              <div class="popular-articles__card--date">
-                05.10.2024
-              </div>
-              <div class="popular-articles__card--description">
-                Энергия ветра - это чистый и возобновляемый источник, который может значительно снизить зависимость от
-                ископаемого топлива.
-              </div>
+              <div class="popular-articles__card--date">{{ article.date }}</div>
+              <div class="popular-articles__card--description">{{ article.description }}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   <section class="newsletter">
     <div class="newsletter__container">
       <div class="newsletter__main-text">
-        <h1>Присоединяйтесь к нашей рассылке</h1>
-        <p>Будьте в курсе последних экологических советов и эксклюзивных предложений. <br> Подпишитесь на рассылку прямо
-          сейчас, чтобы оказать положительное влияние!</p>
+        <h1 class="element-animation">Присоединяйтесь к нашей рассылке</h1>
+        <p class="animation-element">Будьте в курсе последних экологических советов и эксклюзивных предложений. <br>
+          Подпишитесь на рассылку прямо сейчас, чтобы оказать положительное влияние!</p>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const emit = defineEmits(['toggleModal'])
+import { onMounted, defineEmits } from 'vue';
+import { popularArticles } from '@/constants/About';
+const emit = defineEmits(['toggleModal']);
 const openModal = () => {
-  emit('toggleModal')
+  emit('toggleModal');
+};
+
+function onEntry(entry) {
+  entry.forEach(change => {
+    if (change.isIntersecting) {
+      change.target.classList.add('element-show');
+    }
+  });
+}
+
+onMounted(() => {
+  const options = {
+    threshold: 0.1
+  };
+  const observer = new IntersectionObserver(onEntry, options);
+  const elements = document.querySelectorAll('.animation-element');
+  const elementsLeft = document.querySelectorAll('.element-animation');
+
+  elements.forEach(elm => observer.observe(elm));
+  elementsLeft.forEach(elm => observer.observe(elm));
+});
+
+const getUrl = (name) => {
+  return new URL(`../assets/images/card/${name}`, import.meta.url)
 }
 </script>
+
 
 <style scoped>
 .about__container {
   position: relative;
+  scroll-behavior: smooth;
 }
 
 .about__main-image {

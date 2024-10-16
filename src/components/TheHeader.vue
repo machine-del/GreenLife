@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 const menuOpen = ref(false);
+const route = useRoute();
 
 function toggleMenu() {
     menuOpen.value = !menuOpen.value;
@@ -10,6 +12,10 @@ function toggleMenu() {
 const emit = defineEmits(['toggleModal'])
 const openModal = () => {
     emit('toggleModal')
+}
+
+const isNotFound = () => {
+    return !['/', '/health', '/lifestyle'].includes(route.path)
 }
 </script>
 
@@ -44,6 +50,11 @@ const openModal = () => {
                         <li>
                             <RouterLink to="/lifestyle" :class="{ 'active-link': $route.path === '/lifestyle' }">
                                 Образ жизни
+                            </RouterLink>
+                        </li>
+                        <li v-if="isNotFound()">
+                            <RouterLink to="/" class="active-link">
+                                Страница не найдена?
                             </RouterLink>
                         </li>
                         <li>

@@ -34,7 +34,11 @@ body {
 }
 
 header {
-  box-shadow: 0px 10px 16px #5945;
+  box-shadow: 0px 10px 16px rgba(189, 58, 53, 0.333);
+  z-index: 19999;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
 }
 
 main {

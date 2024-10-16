@@ -11,11 +11,13 @@
         <form @submit.prevent="submitForm" id="contact-form">
           <div class="form-group">
             <label for="name">Имя</label>
-            <input v-model="name" name="user_name" type="text" id="name" placeholder="Ваше имя" required />
+            <input v-model="name" name="user_name" autocomplete="on" type="text" id="name" placeholder="Ваше имя"
+              required />
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input v-model="email" name="user_email" type="email" id="email" placeholder="Ваш email" required />
+            <input v-model="email" name="user_email" autocomplete="on" type="email" id="email" placeholder="Ваш email"
+              required />
           </div>
           <div class="form-group">
             <label for="message">Сообщение</label>

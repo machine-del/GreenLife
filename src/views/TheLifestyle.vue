@@ -6,9 +6,9 @@
                     <img src="../assets/images/background/TheLifestyle.jpg" alt="main">
                 </div>
                 <div class="about__main-text">
-                    <h1>Эко-образ жизни: гармония с природой каждый день</h1>
-                    <p>Узнайте, как вести устойчивый образ жизни, сохраняя здоровье и окружающую среду. Практические
-                        советы, вдохновение и реальные истории!</p>
+                    <h1 class="element-animation">Эко-образ жизни: гармония с природой каждый день</h1>
+                    <p class="element-animation">Узнайте, как вести устойчивый образ жизни, сохраняя здоровье и
+                        окружающую среду. Практические советы, вдохновение и реальные истории!</p>
                     <button type="button" @click="openModal()">Подробнее</button>
                 </div>
             </div>
@@ -19,110 +19,21 @@
         <div class="popular-articles__container">
             <div class="popular-articles__box">
                 <div class="popular-articles--text">
-                    <h2>Полезные статьи о стиле жизни</h2>
+                    <h2 class="element-animation">Полезные статьи</h2>
                 </div>
                 <div class="popular-articles__cards">
-                    <div class="popular-articles__card">
+                    <div v-for="(article, index) in articles" :key="index" class="popular-articles__card"
+                        :class="{ 'animation-element': index % 2 === 0, 'element-animation': index % 2 !== 0 }">
                         <div class="popular-articles__card__container">
                             <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_12.jpg" alt="card1">
+                                <img :src="getUrl(article.image)" :alt="article.title">
                             </div>
                             <div class="popular-articles__card--title">
-                                <h2>Минимализм и экология</h2>
+                                <h2>{{ article.title }}</h2>
                             </div>
-                            <div class="popular-articles__card--date">
-                                06.10.2024
-                            </div>
+                            <div class="popular-articles__card--date">{{ article.date }}</div>
                             <div class="popular-articles__card--description">
-                                Исследуйте, как минимализм помогает снизить нагрузку на окружающую среду и улучшить
-                                качество жизни.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_13.jpg" alt="card2">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Зеленые технологии в быту</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                06.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Узнайте, как инновации помогают сделать ваш дом более экологичным и энергоэффективным.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_14.jpg" alt="card3">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Путешествия с минимальным углеродным следом</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                06.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Советы по путешествиям, которые помогут вам наслаждаться миром, минимизируя негативное
-                                воздействие на природу.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="popular-articles--text">
-                    <h2>Вдохновляющие истории</h2>
-                </div>
-                <div class="popular-articles__cards">
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_15.jpg" alt="card4">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Как изменить привычки и сохранить планету</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                07.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Реальные примеры людей, которые изменили свои привычки ради более экологичной жизни.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_16.jpg" alt="card5">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Городской сад: Как создать зеленый уголок на балконе</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                07.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Простые идеи для создания собственного городского сада, не выходя из дома.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="popular-articles__card">
-                        <div class="popular-articles__card__container">
-                            <div class="popular-articles__card--image">
-                                <img src="../assets/images/card/card_17.jpg" alt="card6">
-                            </div>
-                            <div class="popular-articles__card--title">
-                                <h2>Сообщества, объединенные заботой о природе</h2>
-                            </div>
-                            <div class="popular-articles__card--date">
-                                07.10.2024
-                            </div>
-                            <div class="popular-articles__card--description">
-                                Как локальные сообщества работают вместе для защиты окружающей среды и улучшения
-                                качества жизни.
+                                {{ article.description }}
                             </div>
                         </div>
                     </div>
@@ -142,9 +53,36 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['toggleModal'])
+import { onMounted, defineEmits } from 'vue';
+import { articles } from '@/constants/LifeStyle';
+
+const emit = defineEmits(['toggleModal']);
 const openModal = () => {
-    emit('toggleModal')
+    emit('toggleModal');
+};
+
+function onEntry(entry) {
+    entry.forEach(change => {
+        if (change.isIntersecting) {
+            change.target.classList.add('element-show');
+        }
+    });
+}
+
+onMounted(() => {
+    const options = {
+        threshold: 0.1
+    };
+    const observer = new IntersectionObserver(onEntry, options);
+    const elements = document.querySelectorAll('.animation-element');
+    const elementsLeft = document.querySelectorAll('.element-animation');
+
+    elements.forEach(elm => observer.observe(elm));
+    elementsLeft.forEach(elm => observer.observe(elm));
+});
+
+const getUrl = (name) => {
+    return new URL(`../assets/images/card/${name}`, import.meta.url)
 }
 </script>
 
@@ -308,7 +246,7 @@ button:hover {
 
 .about__noise-bg {
     animation: noise-animation .25s steps(10) 0s infinite alternate-reverse none running;
-    background: url("../src/assets/images/background/noise.png") rgba(0, 0, 0, 0.35);
+    background: url("../assets/noise.png") rgba(0, 0, 0, 0.35);
     height: 100%;
     pointer-events: none;
     position: absolute;
